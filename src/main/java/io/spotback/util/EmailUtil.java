@@ -20,6 +20,7 @@ public class EmailUtil {
     }
 
     private void setMessage(String email, String firstname, String messageKey, String subject) {
+        eMessage = new MailMessage();
         eMessage.setFrom(config.getString("username"));
         eMessage.setTo(email);
         eMessage.setSubject(config.getString(subject));
