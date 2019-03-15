@@ -19,7 +19,7 @@ public class EmailUtil {
     }
 
     private void setMessage(String email, String firstname, String messageKey, String subject) {
-        eMessage.setFrom(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString(Constants.EMAIL));
+        eMessage.setFrom(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString("username"));
         eMessage.setTo(email);
         eMessage.setSubject(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString(subject));
         eMessage.setText(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString(Constants.EMAIL_TEXT));
@@ -38,6 +38,7 @@ public class EmailUtil {
 
     public Future<String> sendEmail(String email, String firstname, String messageKey, String subject) {
         Future<String> status = Future.future();
+        setMessage(email, firstname, messageKey, subject);
         getEmailClient().sendMail(eMessage, ar -> {
            if(ar.succeeded()) {
                status.complete(ar.result().getRecipients().toString());
