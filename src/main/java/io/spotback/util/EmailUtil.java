@@ -20,11 +20,11 @@ public class EmailUtil {
     }
 
     private void setMessage(String email, String firstname, String messageKey, String subject) {
-        eMessage.setFrom(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString("username"));
+        eMessage.setFrom(config.getString("username"));
         eMessage.setTo(email);
-        eMessage.setSubject(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString(subject));
-        eMessage.setText(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString(Constants.EMAIL_TEXT));
-        eMessage.setHtml(StrSubstitutor.replace(config.getJsonObject(Constants.EMAIL_CONFIGURATION_KEY).getString(messageKey), new JsonObject().put(config.getJsonObject(Constants.USER_CONFIGURATION_KEY).getString(Constants.USER_IDENTIFIER), email).put(config.getJsonObject(Constants.USER_CONFIGURATION_KEY).getString(Constants.USER_NAME1), firstname).getMap()));
+        eMessage.setSubject(config.getString(subject));
+        eMessage.setText(config.getString(Constants.EMAIL_TEXT));
+        eMessage.setHtml(StrSubstitutor.replace(config.getString(messageKey), new JsonObject().put("email", email).put("firstName", firstname).getMap()));
     }
 
 
