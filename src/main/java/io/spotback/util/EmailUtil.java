@@ -15,6 +15,7 @@ public class EmailUtil {
 
     public EmailUtil(Vertx vertx, JsonObject config) {
         this.vertx = vertx;
+        this.config = config;
         mailConfig = new MailConfig(config);
     }
 
