@@ -27,7 +27,17 @@ The config should look something like this:
 }
 ```
 Then to send the email simply call this instance method `public Future<String> sendEmail(String email, String firstname, String messageKey, String subject)`.
-sendEmail takes in email of who you are sending the message to, firstname of that person, the message(pass is a key and it will pull the message from the configuration you constructed with), and the subject key which is also stored in the cofiguration.
+sendEmail takes in email of who you are sending the message to, firstname of that person, the message(pass in a key and it will pull the message from the configuration you constructed with), and the subject key which is also stored in the cofiguration.
+This method returns a Future<String> which you can check if it failed or not like this 
+```java
+sendEmail("example@gmail.com", "John", "WELCOME", "welcomeSubject").setHandler(ar -> {
+	if(ar.succeeded()) {
+	//do some stuff
+	} else {
+	//handle failure
+	}
+});
+```
 
 To get a this project into your build:
 
