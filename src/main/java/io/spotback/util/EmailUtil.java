@@ -48,6 +48,7 @@ public class EmailUtil {
                status.fail(ar.cause().getMessage());
            }
             mailClient.close();
+           mailClient = null;
         });
         return status;
     }
