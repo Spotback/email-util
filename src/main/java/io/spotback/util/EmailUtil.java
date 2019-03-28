@@ -31,7 +31,7 @@ public class EmailUtil {
 
     private MailClient getEmailClient() {
         if(mailClient == null) {
-            mailClient = MailClient.createShared(vertx, mailConfig);
+            mailClient = MailClient.createNonShared(vertx, mailConfig);
             return mailClient;
         } else {
             return mailClient;
@@ -40,16 +40,17 @@ public class EmailUtil {
 
     public Future<String> sendEmail(String email, String firstname, String messageKey, String subject) {
         Future<String> status = Future.future();
-        setMessage(email, firstname, messageKey, subject);
-        getEmailClient().sendMail(eMessage, ar -> {
-           if(ar.succeeded()) {
-               status.complete(ar.result().getRecipients().toString());
-           } else {
-               status.fail(ar.cause().getMessage());
-           }
-            mailClient.close();
-           mailClient = null;
-        });
+//        setMessage(email, firstname, messageKey, subject);
+//        getEmailClient().sendMail(eMessage, ar -> {
+//           if(ar.succeeded()) {
+//               status.complete(ar.result().getRecipients().toString());
+//           } else {
+//               status.fail(ar.cause().getMessage());
+//           }
+//            mailClient.close();
+//           mailClient = null;
+//        });
+        status.complete("hello");
         return status;
     }
 }
