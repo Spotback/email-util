@@ -1,6 +1,6 @@
 # email-util
 
-This utility can be used to send an email. To use this tool first construct a new EmailUtil object `EmailUtil email = EmailUtil(Vertx vertx, JsonObject config)`.
+This utility can be used to send an email. To use this tool first construct a new EmailUtil object `EmailUtil email = new EmailUtil(Vertx vertx, JsonObject config)`.
 The config should look something like this:
 
 ```json
