@@ -1,6 +1,6 @@
 # email-util
 
-This utility can be used to send an email. To use this tool first construct a new EmailUtil object `public EmailUtil(Vertx vertx, JsonObject config)`.
+This utility can be used to send an email. To use this tool first construct a new EmailUtil object `EmailUtil email = EmailUtil(Vertx vertx, JsonObject config)`.
 The config should look something like this:
 
 ```json
@@ -30,7 +30,7 @@ Then to send the email simply call this instance method `public Future<String> s
 sendEmail takes in email of who you are sending the message to, firstname of that person, the message(pass in a key and it will pull the message from the configuration you constructed with), and the subject key which is also stored in the cofiguration.
 This method returns a Future<String> which you can check if it failed or not like this 
 ```java
-sendEmail("example@gmail.com", "John", "WELCOME", "welcomeSubject").setHandler(ar -> {
+email.sendEmail("example@gmail.com", "John", "WELCOME", "welcomeSubject").setHandler(ar -> {
 	if(ar.succeeded()) {
 	//do some stuff
 	} else {
