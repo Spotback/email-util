@@ -60,29 +60,6 @@ public class EmailUtil {
     }
 
 //    public static void main(String[] args) {
-//        EmailUtil emailUtil = new EmailUtil(Vertx.vertx(), new JsonObject("{\n" +
-//                "    \"hostname\" : \"smtp.gmail.com\",\n" +
-//                "    \"port\" : 465,\n" +
-//                "    \"starttls\" : null,\n" +
-//                "    \"login\" : \"REQUIRED\",\n" +
-//                "    \"username\" : \"spotbackteam@gmail.com\",\n" +
-//                "    \"password\" : \"Spoticus19\",\n" +
-//                "    \"ssl\" : true,\n" +
-//                "    \"trustAll\" : true,\n" +
-//                "    \"keyStore\" : null,\n" +
-//                "    \"keyStorePassword\" : null,\n" +
-//                "    \"authMethods\" : \"PLAIN\",\n" +
-//                "    \"ownHostName\" : null,\n" +
-//                "    \"maxPoolSize\" : 10,\n" +
-//                "    \"keepAlive\" : true,\n" +
-//                "    \"allowRcptErrors\" : false,\n" +
-//                "    \"welcomeSubject\" : \"Verification Email from Spotback\",\n" +
-//                "    \"newEmailSubject\" : \"Verification Email from Spotback\",\n" +
-//                "    \"text\" : \"\",\n" +
-//                "    \"validate.link\": \"https://localhost:8880/${email}\",\n" +
-//                "    \"WELCOME\" : \"<h4>Dear ${firstName},</h4><p>Thank you for joining the Spotback Community! We are very excited to have you on board to solve the communities parking hassles. Please click this link to verify your account <a href=\\\"https://localhost:8880/validate/${email}\\\">https://localhost:8880/validate/${email}</a> Remember to post the spot you are parked in before leaving so another driver can request for you to hold it until they arrive.<br><br>Sincerely,<br><br>The Spotback Team<br><br><img src=\\\"https://s3.us-east-2.amazonaws.com/aws-codestar-us-east-2-639360651737/Spotback+new-2.png\\\"width=\\\"35%\\\"></p>\",\n" +
-//                "    \"emailChange\" : \"<h4>Dear ${firstName},</h4><p>You have successfully changed your email address for your spotback account! Please click this link to verify your account <a href=\\\"https://localhost:8880/validate/${email}\\\">https://localhost:8880/validate/${email}</a> Remember to post the spot you are parked in before leaving so another driver can request for you to hold it until they arrive.<br><br>Sincerely,<br><br>The Spotback Team<br><br><img src=\\\"https://s3.us-east-2.amazonaws.com/aws-codestar-us-east-2-639360651737/Spotback+new-2.png\\\"width=\\\"35%\\\"></p>\"\n" +
-//                "  }"));
 //        emailUtil.sendEmail("dylancorbus@outlook.com", "dylan", "hell", "hello").setHandler(ar -> {
 //            if(ar.succeeded()) {
 //                System.out.println(ar.result());
