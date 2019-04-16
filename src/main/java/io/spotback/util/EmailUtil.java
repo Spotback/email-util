@@ -46,11 +46,10 @@ public class EmailUtil {
         getEmailClient().sendMail(eMessage, ar -> {
             if (ar.succeeded()) {
                 status.complete(ar.result().getRecipients().toString());
+                mailClient.close();
             } else {
                 status.fail(ar.cause().getMessage());
             }
-            mailClient.close();
-            mailClient = null;
         });
         return status;
     }
