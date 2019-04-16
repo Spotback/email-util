@@ -23,7 +23,7 @@ public class EmailUtil {
         mailConfig.setLogin(LoginOption.REQUIRED);
         mailConfig.setUsername(config.getString("username"));
         mailConfig.setPassword(config.getString("password"));
-        mailConfig.setAuthMethods("PLAIN");
+//         mailConfig.setAuthMethods("PLAIN");
     }
 
     private void setMessage(String email, String firstname, String messageKey, String subject) {
