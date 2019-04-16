@@ -43,10 +43,9 @@ public class EmailUtil {
     public Future<String> sendEmail(String email, String firstname, String messageKey, String subject) {
         Future<String> status = Future.future();
         setMessage(email, firstname, messageKey, subject);
-        getEmailClient().sendMail(eMessage, ar -> {
+        MailClient.createNonShared(vertx, mailConfig).sendMail(eMessage, ar -> {
             if (ar.succeeded()) {
                 status.complete(ar.result().getRecipients().toString());
-                mailClient.close();
             } else {
                 status.fail(ar.cause().getMessage());
             }
