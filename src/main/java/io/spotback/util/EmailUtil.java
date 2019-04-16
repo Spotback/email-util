@@ -36,12 +36,8 @@ public class EmailUtil {
 
 
     private MailClient getEmailClient() {
-        if (mailClient == null) {
             mailClient = MailClient.createNonShared(vertx, mailConfig);
             return mailClient;
-        } else {
-            return mailClient;
-        }
     }
 
     public Future<String> sendEmail(String email, String firstname, String messageKey, String subject) {
@@ -59,13 +55,4 @@ public class EmailUtil {
         return status;
     }
 
-//    public static void main(String[] args) {
-//        emailUtil.sendEmail("dylancorbus@outlook.com", "dylan", "hell", "hello").setHandler(ar -> {
-//            if(ar.succeeded()) {
-//                System.out.println(ar.result());
-//            } else {
-//                System.out.println(ar.cause().getMessage());
-//            }
-//        });
-//    }
 }
