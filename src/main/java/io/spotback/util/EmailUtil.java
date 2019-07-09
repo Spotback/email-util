@@ -23,7 +23,7 @@ public class EmailUtil {
         mailConfig.setLogin(LoginOption.REQUIRED);
         mailConfig.setUsername(config.getString("username"));
         mailConfig.setPassword(config.getString("password"));
-        mailConfig.setAuthMethods("PLAIN");
+//         mailConfig.setAuthMethods("PLAIN");
     }
 
     private void setMessage(String email, String firstname, String messageKey, String subject) {
@@ -49,8 +49,6 @@ public class EmailUtil {
             } else {
                 status.fail(ar.cause().getMessage());
             }
-            mailClient.close();
-            mailClient = null;
         });
         return status;
     }
